@@ -1,0 +1,79 @@
+<div class="container">
+    <h2>Spread a new Virus!</h2>
+    <form th:action="@{/viruses/edit/}+${virus.getId()}"  th:method="post" th:object=${AddVirusBindingModel}>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" th:value="${virus.getName()}" class="form-control" id="name" placeholder="Name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" th:inline="text" th:field="*{description}" th:text="${virus.getDescription()}" rows="3" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="sideEffect">Side Effect:</label>
+            <input type="text" class="form-control"  th:field="*{sideEffects}"  th:value="${virus.getSideEffects()}" id="sideEffect" placeholder="Side Effect" name="sideEffect">
+        </div>
+
+        <div class="form-group">
+            <label for="creator">Creator:</label>
+            <input type="text" class="form-control" th:value="${virus.getCreator()}" id="creator"  placeholder="Creator" name="creator">
+        </div>
+
+        <div class="checkbox" >
+            <label><input type="checkbox" th:checked="${virus.getisDeadly()}" th:field="*{isDeadly}"  name="isDeadly" id="isDeadly">Is Deadly?</label>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" th:checked="${virus.getisCurable()}"  th:field="*{isCurable}"  name="isCurable" id="isCurable">Is Curable?</label>
+        </div>
+
+        <div th:each="type : ${types}" class="radio" >
+            <input th:type="radio"  th:value="${type}" th:field="*{mutation}" th:name="radio" th:checked="${virus.getMutation().equalsIgnoreCase(type)}" />
+            <label th:text="${type}"></label>
+        </div>
+
+        <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>Save Humanity</label>
+        </div>
+
+
+        <div class="form-group">
+            <label for="turnoverRate">Turnover Rate:</label>
+            <input type="number"  class="form-control" th:value="${virus.getTurnoverRate()}" placeholder="0-100" name="turnoverRate" id="turnoverRate" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="hoursUntilMutation">Hours Until Turn:</label>
+            <input type="number"  class="form-control" placeholder="" th:value="${virus.getHoursUntilMutation()}" name="hoursUntilMutation" id="hoursUntilMutation" min="1" max="12">
+        </div>
+
+
+        <div class="form-group">
+        <label for="magnitude">Magnitude:</label>
+        <select class="form-control" id="magnitude" th:field="*{magnitude}" >
+            <option th:value="Low"  th:selected="${virus.getMagnitude() == 'LOW'}">Low</option>
+            <option th:value="Medium"  th:selected="${virus.getMagnitude() == 'MEDIUM'}">Medium</option>
+            <option th:value="High"  th:selected="${virus.getMagnitude()== 'HIGH'}" >High</option>
+        </select>
+    </div>
+
+        <div class="form-group">
+            <label for="releaseDate">Release Date:</label>
+            <input type="date"  class="form-control" th:field="*{releasedOn}" th:value="${virus.getReleasedOnOther()}" id="releaseDate" placeholder="Date" name="releaseDate">
+        </div>
+
+
+        <div class="form-group">
+            <label for="capitals">Affected Capitals:</label>
+            <select class="form-control" id="capitals" name="capitals" th:field="*{capitals}"  multiple>
+                <option th:each="capital : ${capitals}" th:value="${capital}"  th:selected="${#lists.contains(virus.getCapitals(), capital)}"
+                        th:utext="${capital}">
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-default">Create</button>
+    </form>
+</div>

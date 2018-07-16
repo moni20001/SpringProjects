@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Ascending customers</title>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+
+</head>
+<body >
+<header th:insert="menu.html :: header"> </header>
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>Birth Date</th>
+    <th>Is young</th>
+</tr>
+        <th:block th:each="cus : ${customers}">
+       <tr>
+           <td th:text="${cus.getName()}"></td>
+           <td th:text="${cus.getBirth_date()}"></td>
+           <td th:text="${cus.isIs_young_driver()}"></td>
+       </tr>
+    </th:block>
+</table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+.navbar-custom {
+    background-color:#a10052;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #a10052;
+}
+
+.navbar-custom .navbar-brand {
+    color:#ffffff;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#ffffff;
+}
+.navbar-custom .icon-bar {
+    background-color:#a10052;
+}
+/* for dropdowns only */
+.navbar-custom .navbar-nav .dropdown-menu  {
+    background-color: #ffffff;
+}
+.navbar-custom .navbar-nav .dropdown-menu>li>a  {
+    color: #000000;
+    background-color: #ffffff;
+}
+.navbar-custom .navbar-nav .dropdown-menu>li>a:hover,.navbar-custom .navbar-nav .dropdown-menu>li>a:focus  .dropdown-menu>li>a:hover .dropdown-menu>li:hover{
+    color: #000000;
+    background-color: #ffffff;
+}
+.hovorHref:hover .hovorHref:focus .hovorHref>a:hover .hovorHref>a:focus{
+    color: #000000;
+    background-color: #ffffff;
+}

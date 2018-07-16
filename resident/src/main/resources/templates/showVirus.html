@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>All Viruses</h1>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Magnitude</th>
+            <th>Released On</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="virus,iter : ${viruses}">
+            <td th:text="${iter.index+1}"/>
+            <td th:text="${virus.getName()}"/>
+            <td th:text="${virus.getMagnitude()}"/>
+            <td th:text="${virus.getReleasedOn()}"/>
+            <td>
+            <a class="btn btn-default" th:href="@{'/viruses/edit/' + ${virus.getId()}}">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-default" th:href="@{'/viruses/delete/' + ${virus.getId()}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
